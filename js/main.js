@@ -60,7 +60,7 @@ $(document).ready(function () {
     }
     isOpenedMenu = !isOpenedMenu;
   })
-})
+});
 
 $(document).ready(function () {
   $(".owl-carousel").owlCarousel({
