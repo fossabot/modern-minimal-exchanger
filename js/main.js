@@ -49,7 +49,6 @@ function Calc() {
 var isOpenedMenu = false;
 $(document).ready(function () {
   $('.burger_trigger').click(function(){
-    console.log('Menu Click');
     if(isOpenedMenu){
       $('body').removeAttr('style');
       $('header').removeAttr('style');
@@ -60,7 +59,7 @@ $(document).ready(function () {
     }
     isOpenedMenu = !isOpenedMenu;
   })
-});
+})
 
 $(document).ready(function () {
   $(".owl-carousel").owlCarousel({
