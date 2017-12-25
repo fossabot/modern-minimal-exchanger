@@ -1,0 +1,22 @@
+<template>
+  <div>
+    <HeaderMenu />
+    <div class="conteiner">
+        <nuxt/>
+    </div>
+    <div class="Line"></div>
+    <ComponentFooter />
+  </div>
+</template>
+
+<script>
+import HeaderMenu from '~/components/Header'
+import ComponentFooter from '~/components/Footer'
+
+export default {
+  components: {
+    HeaderMenu,
+    ComponentFooter
+  }
+}
+</script>
