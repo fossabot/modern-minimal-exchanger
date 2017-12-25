@@ -1,15 +1,17 @@
 <template>
-  <div class="flex-box">
-    <h1>Главная</h1>
-  </div>
+  <Exchange />
 </template>
 
 <script>
+import Exchange from '~/components/Exchange'
 export default {
   head () {
       return {
         title: 'Главная'
       }
+  },
+  components: {
+    Exchange
   }
 }
 </script>
