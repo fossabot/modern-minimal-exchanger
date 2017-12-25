@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="wh100">
     <HeaderMenu />
-    <div class="conteiner">
+    <div class="Content">
         <nuxt/>
     </div>
     <div class="Line"></div>

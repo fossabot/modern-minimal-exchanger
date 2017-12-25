@@ -9,6 +9,11 @@
 	opacity: 0;
 }
 
+#__nuxt, .wh100, body, html {
+  height: 100%;
+  width: 100%;
+}
+
 /*begin color*/
 
 @MainBackgroundColor: #f2f2f2;
@@ -117,6 +122,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 80%;
     .System {
       width: 154px;
       height: 154px;
@@ -594,7 +600,7 @@ body {
           font-weight: normal;
           font-family: 'Calibri';
         }
-        &:hover {
+        &.nuxt-link-exact-active, &:hover {
           span {
             color: @LinkColor;
             transition: all .3s
@@ -622,7 +628,7 @@ body {
             font-size: 12pt;
             text-transform: uppercase;
             color: @TitleTextColor;
-            &:hover {
+            &.nuxt-link-exact-active, &:hover{
               color: @LinkColor;
               transition: all .3s
             }
@@ -682,12 +688,13 @@ body {
     width: 90%;
     height: 10px;
     background-color: #f2f2f2;
-    margin: 20px 0;
+    margin: 20px auto;
   }
   footer {
     width: 90%;
-    position: fixed;
-    bottom: 0;
+    // position: fixed;
+    // bottom: 0;
+    margin: 0 auto;
     .Last {
       display: flex;
       flex-direction: row;
