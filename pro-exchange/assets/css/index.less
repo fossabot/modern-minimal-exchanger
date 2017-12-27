@@ -16,6 +16,13 @@
   width: 100%;
 }
 
+.modal-enter-active, .modal-leave-active {
+  transition: all .3s;
+}
+.modal-enter, .modal-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 /*begin color*/
 
 @MainBackgroundColor: #f2f2f2;
@@ -124,7 +131,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80%;
+    //height: 80%;
     .System {
       width: 154px;
       height: 154px;
@@ -1272,16 +1279,12 @@ body {
   margin: auto;
   width: 479px;
   height: 503px;
-  /* position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);*/
   background: #fff;
   position: fixed;
   border-radius: 10px;
   color: #565656;
   z-index: 1000;
-  display: none;
+  display: block;
   h3 {
     font-size: 16px;
     font-weight: bold;
@@ -1303,6 +1306,9 @@ body {
     position: absolute;
     top: 12px;
     right: 15px;
+    background-color: transparent;
+    border: 0;
+    outline: none;
     i {
       padding-left: 7px;
       font-size: 24pt;
@@ -1465,15 +1471,16 @@ body {
 }
 
 #overlay {
-  background: #000;
+  background: rgba(0, 0, 0, .5);
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  opacity: 0.5;
   z-index: 999;
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 666px) {

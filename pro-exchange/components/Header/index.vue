@@ -24,7 +24,7 @@
       </nav>
 
       <div class="Authorization">
-        <button class="SignIn">
+        <button class="SignIn" @click="ModalAuthorization(true)">
           <i class="fa fa-user-circle" aria-hidden="true"></i>Войти</button>
         <span>или</span>
         <button class="Registration">Зарегистрируйтесь</button>
@@ -38,13 +38,14 @@
         <span>Exchanger</span>
       </a>
     </div>
-  </div>
+  </div>  
 </template>
 
 <script>
   export default {
     data() {
       return {
+        Authorization: false,
         links: [
           {
             id: 1,
@@ -90,6 +91,9 @@
         if (url === '/') {
           return true
         }
+      },
+      ModalAuthorization(value) {
+        this.$store.dispatch('ModalAuthorization', value)
       }
     }
   }

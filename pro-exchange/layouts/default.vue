@@ -4,22 +4,31 @@
       <div class="burger"></div>
     </div>
     <HeaderMenu />
-    <div class="Content">
         <nuxt/>
-    </div>
     <div class="Line"></div>
     <ComponentFooter />
+    <transition name="modal">
+      <ModalAuthorization v-if="ModalAuthorizationStatus" />    
+    </transition>
   </div>
 </template>
 
 <script>
+
 import HeaderMenu from '~/components/Header'
 import ComponentFooter from '~/components/Footer'
+import ModalAuthorization from '~/components/Modals/Authorization'
 
 export default {
   components: {
     HeaderMenu,
-    ComponentFooter
+    ComponentFooter,
+    ModalAuthorization
+  },
+  computed: {
+    ModalAuthorizationStatus () {
+      return this.$store.getters.ModalAuthorization
+    }
   }
 }
 </script>
