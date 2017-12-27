@@ -1,9 +1,9 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
 module.exports = {
 
   router: {
-    mode: 'hash',
+    // mode: 'hash',
     path: '/'
   },
   /*
