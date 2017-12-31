@@ -1,5 +1,5 @@
 export default {
-  Name: 'RU',
+  Name: 'ru',
   Lang: 'Русский',
   Menu: {
     Header: {

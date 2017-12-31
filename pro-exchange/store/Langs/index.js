@@ -20,6 +20,7 @@ const mutations = {
 
 const actions = {
   Language({ commit }, pyaload) {
+    this.app.router.push('/' + pyaload)
     commit(Types.Lang.CHANGE, pyaload)
   }
 }

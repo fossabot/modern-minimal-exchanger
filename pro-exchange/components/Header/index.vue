@@ -52,9 +52,9 @@
       },
       ModalRegistration() {
         if(this.isLanguage)
-          this.$store.dispatch('Language', 'EN')
+          this.$store.dispatch('Language', 'en')
         else 
-          this.$store.dispatch('Language', 'RU')
+          this.$store.dispatch('Language', 'ru')
         this.isLanguage = !this.isLanguage
       }
     },
