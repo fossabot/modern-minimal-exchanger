@@ -1,5 +1,7 @@
 <template>
   <div class="Wrapper">
+    <input type="checkbox" id="toogle_menu" />
+    <label for="toogle_menu" class="fa fa-bars burger" />
     <header class="showme">
       <div class="Logo">
         <img src="~static/images/dot.png" alt="PRO EXCHANGER" />
@@ -11,13 +13,9 @@
 
       <nav>
         <ul>
-          <li v-for="link in links" :key="link.id">
-            <nuxt-link v-if="CheckLink()" :to="link.url" :title="link.description" class=".active, .exact-active">
-              {{ link.title }}
-            </nuxt-link>
-
-            <nuxt-link v-else :to="link.url" :title="link.description">
-              {{ link.title }}
+          <li v-for="link in Menu" :key="link.id">
+            <nuxt-link :to="LangLink + link.url" :title="LangMenu[link.url]">
+              {{ LangMenu[link.url] }}
             </nuxt-link>
           </li>
         </ul>
@@ -25,77 +23,51 @@
 
       <div class="Authorization">
         <button class="SignIn" @click="ModalAuthorization(true)">
-          <i class="fa fa-user-circle" aria-hidden="true"></i>Войти</button>
-        <span>или</span>
-        <button class="Registration">Зарегистрируйтесь</button>
+          <i class="fa fa-user-circle" aria-hidden="true"></i>{{LangMenu['Enter']}}</button>
+        <span>{{LangMenu['Or']}}</span>
+        <button class="Registration"  @click="ModalRegistration()">{{LangMenu['Register']}}</button>
       </div>
     </header>
 
     <div class="Logo1">
       <img src="~static/images/dot.png" alt="PRO EXCHANGER">
-      <a href="/">PRO
+      <nuxt-link to="/">PRO
         <br />
         <span>Exchanger</span>
-      </a>
+      </nuxt-link>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
   export default {
     data() {
       return {
-        Authorization: false,
-        links: [
-          {
-            id: 1,
-            title: 'Правила',
-            url: '/regulations',
-            description: 'Правила'
-          },
-          {
-            id: 2,
-            title: 'Обмен',
-            url: '/exchange',
-            description: 'Обмен'
-          },
-          {
-            id: 3,
-            title: 'Партнерам',
-            url: '/partners',
-            description: 'Партнерам'
-          },
-          {
-            id: 4,
-            title: 'Новости',
-            url: '/news',
-            description: 'Новости'
-          },
-          {
-            id: 5,
-            title: 'FAQ',
-            url: '/faq',
-            description: 'FAQ'
-          },
-          {
-            id: 6,
-            title: 'Контакты',
-            url: '/contacts',
-            description: 'Контакты'
-          }
-        ]
+        isLanguage: true
       }
     },
     methods: {
-      CheckLink(url) {
-        if (url === '/') {
-          return true
-        }
-      },
       ModalAuthorization(value) {
         this.$store.dispatch('ModalAuthorization', value)
+      },
+      ModalRegistration() {
+        if(this.isLanguage)
+          this.$store.dispatch('Language', 'EN')
+        else 
+          this.$store.dispatch('Language', 'RU')
+        this.isLanguage = !this.isLanguage
+      }
+    },
+    computed: {
+      LangLink() {
+        return this.$store.getters.LanguageLink
+      },
+      LangMenu() {
+        return this.$store.getters.Language.Menu.Header
+      },
+      Menu() {
+        return this.$store.getters.Menu.Header
       }
     }
   }
-
 </script>

@@ -1,0 +1,75 @@
+export default {
+  Name: 'RU',
+  Lang: 'Русский',
+  Menu: {
+    Header: {
+      Main: 'Главная',
+      Rules: 'Правила',
+      Exchange: 'Обмен',
+      News: 'Новости',
+      Partners: 'Партнерам',
+      FAQ: 'FAQ',
+      Contacts: 'Контакты',
+      Enter: 'Войти',
+      Or: 'или',
+      Register: 'Зарегестрируйтесь'
+    },
+    Footer: {
+      Title: '© 2013 ProExchanger.net— сервис обмена электронных валют.',
+      About: 'О Сервисе',
+      Exchange: 'Обмен',
+      Rules: ' Правила сервиса',
+      Gifts: 'Подарки сайта',
+      Contacts: 'Контакты'
+    }
+  },
+  Global: {
+    'News': 'Новости'
+  },
+  Pages: {
+    Main: {
+      Exchange: {
+        Title: 'Единый обмен валют',
+        YouGive: 'Отдаете',
+        YouGet: 'Получаете',
+        Reserves: 'Резервы',
+        Minimal: 'Минимальная сумма',
+        Exchenge: 'Обмен по курсу',
+        EnterTitel: 'Ввод данных',
+        EnterData: 'Введите данные для завершения обмена',
+        Email: 'Ваш e-mail',
+        Purse: 'Кошелек',
+        Agree: 'Я Согласен с',
+        License: 'условиями и правилами сервиса',
+        Button: 'Обменять сейчас'
+      },
+      Reviews: {
+        Title: 'Отзывы',
+        All: 'все отзывы'
+      },
+      LastExchange: {
+        Title: 'Последний обмен',
+        On: 'на',
+        Hours: {
+          One: 'час',
+          TwoToFour: 'часа',
+          More: 'часов'
+        },
+        Minutes: {
+          One: 'минуту',
+          TwoToFive: 'минуты',
+          More: 'минут'
+        },
+        Seconds: {
+          One: 'секунду',
+          TwoToFive: 'секунды',
+          More: 'секунд'
+        }
+      },
+      News: {
+        Title: 'Новости',
+        All: 'все новости'
+      }
+    }
+  }
+}

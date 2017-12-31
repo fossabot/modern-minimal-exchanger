@@ -1,23 +1,32 @@
 <template>
   <footer>
     <div class="Last">
-      <p>© 2013 ProExchange.net— сервис обмена электронных валют.</p>
+      <p>{{ LangMenu.Title }}</p>
       <div class="LastRight">
         <ul>
-          <li>
-            <nuxt-link to="/about">О сервисе</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/regulations">Правила сервиса</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/gifts">Подарки сайта</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/contacts">Контакты</nuxt-link>
+          <li v-for="link in Menu" :key="link.id">
+            <nuxt-link :to="LangLink + link.url" :title="LangMenu[link.url]">
+              {{ LangMenu[link.url] }}
+            </nuxt-link>
           </li>
         </ul>
       </div>
     </div>
   </footer>
 </template>
+
+<script>
+  export default {
+    computed: {
+      LangLink() {
+        return this.$store.getters.LanguageLink
+      },
+      LangMenu() {
+        return this.$store.getters.Language.Menu.Footer
+      },
+      Menu() {
+        return this.$store.getters.Menu.Footer
+      }
+    }
+  }
+</script>

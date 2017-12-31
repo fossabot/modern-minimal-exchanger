@@ -59,12 +59,17 @@
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
+  padding-top: 74px;
 }
 /*End clear default margin and padding*/
 
 a {
   font-size: 10pt;
   text-decoration: none;
+}
+
+button, label, input {
+  outline: none;
 }
 
 h1,
@@ -126,11 +131,11 @@ body {
   }
   .Content {
     background-color: @MainBackgroundColor;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
+    // width: 100%;
     //height: 80%;
     .System {
       width: 154px;
@@ -865,37 +870,36 @@ body {
 
 .burger {
   display: none;
-  border-radius: 8px;
-  height: 5px;
-  width: 30px;
-  background-color: #222222;
-  &:after,
-  &:before {
-    border-radius: 8px;
-    content: '';
-    display: block;
-    position: relative;
-    height: 5px;
-    width: 30px;
-    background-color: #222222;
-    top: -10px;
-  }
-  &:after {
-    top: 5px;
-  }
-}
-
-.burger_trigger {
-  top: 12px;
-  right: 0;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 50px;
-  z-index: 999;
+  font-size: 50px;
   cursor: pointer;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  
+  // border-radius: 8px;
+  // height: 5px;
+  // width: 30px;
+  // background-color: #222222;
+  // &:after,
+  // &:before {
+  //   border-radius: 8px;
+  //   content: '';
+  //   display: block;
+  //   position: relative;
+  //   height: 5px;
+  //   width: 30px;
+  //   background-color: #222222;
+  //   top: -10px;
+  // }
+  // &:after {
+  //   top: 5px;
+  // }
+}
+#toogle_menu {
+  display: none;
+}
+.Wrapper #toogle_menu:checked ~ header {
+    display: flex !important
 }
 
 .Logo1 {
@@ -985,6 +989,15 @@ body {
     z-index: 99;
     position: fixed;
     height: 100%;
+    top: 0;
+    align-content: space-between;
+    .Logo {
+      display: none !important;
+    }
+    nav {
+      top: 74px;
+      position: relative;
+    }
     li {
       width: 100% !important;
     }
@@ -1300,8 +1313,6 @@ body {
     color: #66c3e6;
   }
   #close_popup {
-    width: 40px;
-    height: 39px;
     cursor: pointer;
     position: absolute;
     top: 12px;
@@ -1310,7 +1321,6 @@ body {
     border: 0;
     outline: none;
     i {
-      padding-left: 7px;
       font-size: 24pt;
     }
   }

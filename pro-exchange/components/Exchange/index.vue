@@ -1,9 +1,9 @@
 <template>
   <div class="Exchange">
-    <h1 class="TitleCenter">Единный обмен валют</h1>
+    <h1 class="TitleCenter">{{ Lang.Title }}</h1>
     <div class="Calculator">
       <div class="Left">
-        <h1>Отдаете</h1>
+        <h1>{{ Lang.YouGive }}</h1>
         <div class="Input">
           <input type="number" v-model="Exchange.Get" @change="Convert()" :min="Exchange.Minimal" />
           <div class="Money" aria-hidden="true">
@@ -11,7 +11,7 @@
             <img src="~static/images/system/yandex.png" />
           </div>
         </div>
-        <h2>Минимальная сумма
+        <h2>{{ Lang.Minimal }}
           <label>{{Exchange.Minimal}}</label> RUB</h2>
       </div>
 
@@ -20,10 +20,10 @@
       </div>
 
       <div class="Right">
-        <h1>Получаете
+        <h1>{{ Lang.YouGet }}
           <nuxt-link to="/reserves">
             <i class="icon i-balance"></i>
-            <span class="res">Резервы</span>
+            <span class="res">{{ Lang.Reserves }}</span>
           </nuxt-link>
         </h1>
 
@@ -33,33 +33,33 @@
           </div>
           <input type="number" v-model="Exchange.Set" readonly />
         </div>
-        <h2>Обмен по курсу: 1 руб. =
+        <h2>{{ Lang.Exchenge }}: 1 руб. =
           <label>{{Exchange.Currency}}</label> руб.
         </h2>
       </div>
     </div>
 
     <div class="Data">
-      <h1>Ввод данных</h1>
-      <h2>Введите данные для завершения обмена</h2>
+      <h1>{{ Lang.EnterTitel }}</h1>
+      <h2>{{ Lang.EnterData }}</h2>
       <div class="IconInputs">
-        <input type="email" placeholder="Ваш e-mail" :value="Exchange.Email"/>
-        <input type="text" placeholder="Кошелек Я.Денеги" :value="Exchange.GetRequisite"/>
-        <input type="text" placeholder="Кошелек Я.Денеги" :value="Exchange.SetRequisite"/>
+        <input type="email" :placeholder="Lang.Email" :value="Exchange.Email"/>
+        <input type="text" :placeholder="Lang.Purse + ' ' + 'Я.Денеги'" :value="Exchange.GetRequisite"/>
+        <input type="text" :placeholder="Lang.Purse + ' ' + 'Я.Денеги'" :value="Exchange.SetRequisite"/>
       </div>
       <div class="Conditions">
         <div class="CheckBox">
           <input type="checkbox" value="None" id="squaredFour" name="check" :checked="Exchange.License" />
           <label for="squaredFour"></label>
         </div>
-        <p>Я согласен с&nbsp;
-          <nuxt-link to="/license"> условиями и правилами сервиса</nuxt-link>
+        <p>{{ Lang.Agree }}&nbsp;
+          <nuxt-link :to="LangLink + Menu"> {{ Lang.License }} </nuxt-link>
         </p>
 
       </div>
 
       <button>
-        Обменять сейчас
+        {{ Lang.Button }}
       </button>
     </div>
   </div>
@@ -86,9 +86,22 @@ export default {
       return this.Exchange.Set =  this.Exchange.Get * this.Exchange.Currency
     }
   },
+  computed: {
+    LangLink() {
+      return this.$store.getters.LanguageLink
+    },
+    Lang() {
+      return this.$store.getters.Language.Pages.Main.Exchange
+    },
+    LangMenu() {
+      return this.$store.getters.Language.Menu.Header
+    },
+    Menu() {
+      return this.$store.getters.Menu.Header['1']['url']
+    }
+  },
   created () {
     this.Convert()
   }
 }
-
 </script>

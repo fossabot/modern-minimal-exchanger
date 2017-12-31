@@ -1,4 +1,4 @@
-import Types from '../types'
+import Types from '../Types'
 
 const state = {
   Modals: {
@@ -8,20 +8,20 @@ const state = {
 }
 
 const mutations = {
-  [Types.Modals.MODAL_AUTHORIZATION](state, pyaload) {
+  [Types.Modals.AUTHORIZATION](state, pyaload) {
     state.Modals.Authorization = pyaload
   },
-  [Types.Modals.MODAL_REGISTRATION](state, pyaload) {
+  [Types.Modals.REGISTRATION](state, pyaload) {
     state.Modals.Registration = pyaload
   }
 }
 
 const actions = {
   ModalAuthorization({ commit }, pyaload) {
-    commit(Types.Modals.MODAL_AUTHORIZATION, pyaload)
+    commit(Types.Modals.AUTHORIZATION, pyaload)
   },
   ModalRegistration({ commit }, pyaload) {
-    commit(Types.Modals.MODAL_REGISTRATION, pyaload)
+    commit(Types.Modals.REGISTRATION, pyaload)
   }
 }
 

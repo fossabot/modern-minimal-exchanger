@@ -23,18 +23,20 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
 .error-page {
   color: #000;
   background: #fff;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  display: flex;
   position: absolute;
   font-family: "SF UI Text", "Helvetica Neue", "Lucida Grande";
   text-align: center;
-  padding-top: 20%;
+
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
 }
 .error-code {
   display: inline-block;

@@ -1,20 +1,12 @@
 <template>
-    <div class="Content">
-      <Exchange />
-    </div>
+  
 </template>
 
-<script>
-import Exchange from '~/components/Exchange'
 
+<script>
 export default {
-  head () {
-      return {
-        title: 'Главная'
-      }
-  },
-  components: {
-    Exchange
+  fetch ({ store, redirect }) {
+    redirect(301, store.getters.LanguageLink)
   }
 }
 </script>

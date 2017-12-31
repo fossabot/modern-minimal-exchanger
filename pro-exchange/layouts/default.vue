@@ -1,8 +1,5 @@
 <template>
   <div class="wh100">
-    <div class="burger_trigger">
-      <div class="burger"></div>
-    </div>
     <HeaderMenu />
         <nuxt/>
     <div class="Line"></div>

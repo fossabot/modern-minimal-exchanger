@@ -1,12 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Modals from './modules/Modals.js'
+import Langs from './Langs'
+import Menu from './Menu'
+import Modals from './Modules/Modals'
+import News from './Modules/News'
 
 Vue.use(Vuex)
 const store = () => {
   return new Vuex.Store({
     modules: [
-      Modals
+      Langs,
+      Menu,
+      Modals,
+      News
     ]
   })
 }
