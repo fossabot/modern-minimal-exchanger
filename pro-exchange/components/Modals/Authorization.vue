@@ -3,7 +3,7 @@
       <div id="popup">
         <div class="UpCap">
           <p>ВХОД</p>
-          <button id="close_popup" @click="ModalAuthorization(false)">
+          <button id="close_popup" @click="Close">
             <i class="fa fa-times" aria-hidden="true"></i>
           </button>
         </div>
@@ -50,9 +50,8 @@
 <script>
   export default {
     methods: {
-      ModalAuthorization(value) {
-        console.log('Test')
-        this.$store.dispatch('ModalAuthorization', value)
+      Close(value) {
+        this.$store.dispatch('Modals/Authorization', false)
       }
     }
   }

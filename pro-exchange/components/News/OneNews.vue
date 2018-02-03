@@ -11,7 +11,7 @@
     props: ['News'],
     computed: {
       LangLink() {
-        return this.$store.getters.LanguageLink
+        return this.$t('lang')
       }
     }
   }

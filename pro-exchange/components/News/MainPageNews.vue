@@ -4,7 +4,7 @@
       <div class="PageCaption">
         <h2>{{ l('News', '') }} </h2>
         <span>/</span>
-        <nuxt-link :to="LangLink + 'news'">{{Lang.News.All}}
+        <nuxt-link :to="LangLink + 'news'">{{ l('News.All','Pages.Main') }}
           <i class="fa fa-angle-right" aria-hidden="true"></i>
         </nuxt-link>
       </div>
@@ -24,24 +24,18 @@ import OneNews from './OneNews'
     methods: {
       l(value, constant)
       {
-        if(!constant || constant === '' || !this.$store.getters.Language[constant]) 
-          constant = 'Global';
-
-        if(!this.$store.getters.Language[constant][value])
-          return '[String]'
-
-        return this.$store.getters.Language[constant][value]
+        if(!constant || constant === '')
+             return this.$t('Global' + '.' + String(value))
+        else 
+          return this.$t(String(constant) + '.' + String(value))
       }
     },
     computed: {
       LastNews () {
-        return this.$store.getters.LastNews
-      },
-      Lang() {
-        return this.$store.getters.Language.Pages.Main
+        return this.$store.state.News
       },
       LangLink() {
-        return this.$store.getters.LanguageLink
+        return '/' + this.$t('lang') + '/'
       }
     }
   }

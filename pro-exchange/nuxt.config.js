@@ -4,8 +4,7 @@ module.exports = {
   mode: 'universal',
 
   router: {
-    // mode: 'hash',
-    path: '/'
+    middleware: 'i18n'
   },
   /*
   ** Headers of the page
@@ -43,6 +42,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/i18n.js'
   ],
 
   /*
@@ -67,6 +67,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    vendor: ['vue-i18n'],
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {

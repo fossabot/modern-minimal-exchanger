@@ -1,20 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import Langs from './Langs'
-import Menu from './Menu'
-import Modals from './Modules/Modals'
-import News from './Modules/News'
+export const state = () => ({
+  // Возможные языки
+  locales: ['ru', 'en'],
+  locale: 'ru'
+})
 
-Vue.use(Vuex)
-const store = () => {
-  return new Vuex.Store({
-    modules: [
-      Langs,
-      Menu,
-      Modals,
-      News
-    ]
-  })
+export const mutations = {
+  SET_LANG(state, locale) {
+    if (state.locales.indexOf(locale) !== -1) {
+      state.locale = locale
+    }
+  }
 }
-
-export default store

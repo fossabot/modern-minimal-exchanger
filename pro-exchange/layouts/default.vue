@@ -17,6 +17,13 @@ import ComponentFooter from '~/components/Footer'
 import ModalAuthorization from '~/components/Modals/Authorization'
 
 export default {
+  head() {
+    return {
+      htmlAttrs: {
+        lang: this.$t('lang')
+      }
+    }
+  },
   components: {
     HeaderMenu,
     ComponentFooter,
@@ -24,7 +31,7 @@ export default {
   },
   computed: {
     ModalAuthorizationStatus () {
-      return this.$store.getters.ModalAuthorization
+      return this.$store.getters['Modals/Authorization']
     }
   }
 }

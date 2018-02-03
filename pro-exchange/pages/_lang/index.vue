@@ -12,7 +12,7 @@ import MainPageNews from '~/components/News/MainPageNews'
 export default {
   head () {
       return {
-        title: 'Главная'
+        title: this.$t('Menu.Header.Main')
       }
   },
   components: {
